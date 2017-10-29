@@ -1,6 +1,5 @@
 package usermanagement;
 
-import static org.junit.Assert.*;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -13,6 +12,7 @@ public class UserTest extends TestCase {
 	
 	private User user;
 	private Date dateOfBirth;
+	private final int yearOfBirth = 1998;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -20,7 +20,7 @@ public class UserTest extends TestCase {
 		user = new User();
 		
 		Calendar calendar = Calendar.getInstance();
-		calendar.set(1998, Calendar.JULY, 16);
+		calendar.set(yearOfBirth, Calendar.JULY, 16);
 		dateOfBirth = calendar.getTime();
 ;	}
 
@@ -35,7 +35,7 @@ public class UserTest extends TestCase {
 	public void testGetAge() {
 		user.setDateOfBirth(dateOfBirth);
 		Calendar curyear = Calendar.getInstance();
-		assertEquals(curyear.get(Calendar.YEAR) - 1998, user.getAge());
+		assertEquals(curyear.get(Calendar.YEAR) - yearOfBirth, user.getAge());
 	}
 
 }

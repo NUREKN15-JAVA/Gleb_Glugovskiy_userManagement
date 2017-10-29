@@ -13,11 +13,11 @@
 	</target>
 	
 	<target name="compile" depends="init">
-		<javac srcdir="${main-java-dir}" destdir="${build-dir}"/>
+		<javac includeantruntime="false" srcdir="${main-java-dir}" destdir="${build-dir}"/>
 	</target>
 	
 	<target name="test-compile">
-		<javac srcdir="${test-java-dir}" destdir="${build-dir}"/>
+		<javac includeantruntime="false" srcdir="${test-java-dir}" destdir="${build-dir}"/>
 	</target>
 	
 	<target name="test" depends="test-compile">
