@@ -19,14 +19,14 @@ import usermanagement.db.DatabaseException;
 import usermanagement.db.HsqldbUserDao;
 
 public class HsqldbUserDaoTest extends DatabaseTestCase {
-	private static final long TestId = 1000L;
-	private static final long UserId = 1000L;
-	private static final Long UpdateId = 1001L;
-	private static final String FirstName = "Gleb";
-	private static final String LastName = "Glugovskiy";
-	private static final int BirthDay = 16;
-	private static final int BirthMonth = 07;
-	private static final int BirthYear = 1998;
+	private static final long TEST_ID = 1000L;
+	private static final long USER_ID = 1000L;
+	private static final Long UPDATE_ID = 1001L;
+	private static final String FIRST_NAME = "Gleb";
+	private static final String LAST_NAME = "Glugovskiy";
+	private static final int BIRTH_DAY = 16;
+	private static final int BIRTH_MONTH = 07;
+	private static final int BIRTH_YEAR = 1998;
 	
 
 	private HsqldbUserDao dao;
@@ -47,7 +47,7 @@ public class HsqldbUserDaoTest extends DatabaseTestCase {
 
 
 	    protected IDataSet getDataSet() throws Exception {
-	        IDataSet dataSet = new XmlDataSet(getClass().getClassLoader().getResourceAsStream("usersdataset.xml"));
+	        IDataSet dataSet = new XmlDataSet(getClass().getClassLoader().getResourceAsStream("userdataset.xml"));
 	        return dataSet;
 	    }
 	    
@@ -78,7 +78,7 @@ public class HsqldbUserDaoTest extends DatabaseTestCase {
 		Calendar dateOfBirthNew = new GregorianCalendar(1968, 3, 26);
 		newUser.setDateOfBirth(dateOfBirthNew.getTime());
 		try {
-			userFind = dao.find(TestId);
+			userFind = dao.find(TEST_ID);
 		} catch (DatabaseException e) {
 			e.printStackTrace();
 		}
@@ -91,15 +91,15 @@ public class HsqldbUserDaoTest extends DatabaseTestCase {
 	public void testUpdate() {
 		User updatedUser = new User();
 		User newUser = new User();
-		newUser.setId(UpdateId);
-		newUser.setFirstName(FirstName);
-		newUser.setLastName(LastName);
+		newUser.setId(UPDATE_ID);
+		newUser.setFirstName(FIRST_NAME);
+		newUser.setLastName(LAST_NAME);
 		newUser.setDateOfBirth(new Date());
-		Calendar dateOfBirthNew = new GregorianCalendar(BirthYear, BirthMonth, BirthDay);
+		Calendar dateOfBirthNew = new GregorianCalendar(BIRTH_YEAR, BIRTH_MONTH, BIRTH_DAY);
 		newUser.setDateOfBirth(dateOfBirthNew.getTime());
 		try {
 			dao.update(newUser);
-			updatedUser = dao.find(UpdateId);
+			updatedUser = dao.find(UPDATE_ID);
 		} catch (DatabaseException e) {
 			e.printStackTrace();
 		}
@@ -112,10 +112,10 @@ public class HsqldbUserDaoTest extends DatabaseTestCase {
 	public void testDelete(){
 		Collection<User> collection = new LinkedList<>();
 		User user = new User();
-		user.setId(UserId);
-		user.setFirstName(FirstName);
-		user.setLastName(LastName);
-		Calendar dateOfBirthNew = new GregorianCalendar(BirthYear, BirthMonth, BirthDay);
+		user.setId(USER_ID);
+		user.setFirstName(FIRST_NAME);
+		user.setLastName(LAST_NAME);
+		Calendar dateOfBirthNew = new GregorianCalendar(BIRTH_YEAR, BIRTH_MONTH, BIRTH_DAY);
 		user.setDateOfBirth(dateOfBirthNew.getTime());
 		try {
 			dao.delete(user);

@@ -4,7 +4,6 @@ package usermanagement;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.junit.Before;
 
 import junit.framework.TestCase;
 
@@ -14,7 +13,6 @@ public class UserTest extends TestCase {
 	private Date dateOfBirth;
 	private final int yearOfBirth = 1998;
 	
-	@Before
 	public void setUp() throws Exception {
 		super.setUp();
 		user = new User();

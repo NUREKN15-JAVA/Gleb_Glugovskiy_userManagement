@@ -12,6 +12,7 @@ public class ConnectionFactoryImpl implements ConnectionFactory {
 	 private String user;
 	 private String password;
 
+	 
 	public Connection createConnection() throws DatabaseException {
 		try {
 			Class.forName(driver);

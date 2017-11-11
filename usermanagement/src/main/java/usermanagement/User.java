@@ -9,6 +9,24 @@ public class User {
 	private String lastName;
 	private Date dateOfBirth;
 	
+	public User() {
+		
+	}
+	public User(Long id, String firstName, String lastName, Date dateOfBirth) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dateOfBirth = dateOfBirth;
+
+		
+	}
+	public User(String firstName, String lastName, Date date) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dateOfBirth = date;
+		
+	}
+	
 	public Long getId() {
 		return id;
 	}
