@@ -54,7 +54,6 @@ public class MainFrameTest extends JFCTestCase {
             mockUserDao.expectAndReturn("findAll", users);
             setHelper(new JFCTestHelper());
             mainFrame = new MainFrame();
-            System.out.println("set up " + expectedUser);
 
 
             
@@ -113,7 +112,6 @@ public class MainFrameTest extends JFCTestCase {
 
             User expectedUser = new User(new Long(1), "George", "Bush", DATE);
             mockUserDao.expectAndReturn("create", user, expectedUser);
-            System.out.println("1a" + expectedUser + user);
 
             
             ArrayList<User> users = new ArrayList<User>(this.users);
