@@ -36,9 +36,10 @@ public class SearchAgent extends Agent {
 		serviceDescription.setName("JADE-searching");
 		serviceDescription.setType("searching");
 		description.addServices(serviceDescription);
+	
 		try {
-			DFService.deregister(this);
-		} catch (FIPAException e) {
+			DFService.register(this, description);
+		} catch(FIPAException e) {
 			e.printStackTrace();
 		}
 
@@ -71,14 +72,13 @@ public class SearchAgent extends Agent {
 	@Override
 	protected void takeDown() {
 		System.out.println(getAID().getName() + " terminated");
-		try {
-			DFService.register(this, description);
-		} catch(FIPAException e) {
-			e.printStackTrace();
-		}
+	
 				
-				addBehaviour(new RequestServer());
-			
+		try {
+			DFService.deregister(this);
+		} catch (FIPAException e) {
+			e.printStackTrace();
+		}			
 				gui.setVisible(false);
 				gui.dispose();
 
